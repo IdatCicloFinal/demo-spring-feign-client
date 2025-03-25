@@ -3,6 +3,7 @@ package pe.edu.idat.demo_spring_feign_client.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pe.edu.idat.demo_spring_feign_client.restclient.placeholder.model.User;
@@ -22,6 +23,14 @@ public class UserController {
     public ResponseEntity<List<User>> obtenerUsuarios(){
         return new ResponseEntity<>(
                 userService.obtenerUsuarios(),
+                HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<User> obtenerUsuarioxId(
+            @PathVariable Long id){
+        return new ResponseEntity<>(
+                userService.obtenerUsuarioxId(id),
                 HttpStatus.OK);
     }
 }

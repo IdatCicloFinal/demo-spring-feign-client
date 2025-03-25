@@ -16,4 +16,8 @@ public class UserService {
     public List<User> obtenerUsuarios(){
         return userClient.obtenerUsuarios();
     }
+
+    public User obtenerUsuarioxId(Long id){
+        return userClient.obtenerUsuarioxId(id);
+    }
 }
